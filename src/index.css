@@ -5,26 +5,31 @@
 }
 
 :root[data-color-mode="dark"] {
-  --background: #0d1117;
-  --color: #c9d1d9;
+  --bg-primary: #0d1117;
+  --color-primary: #c9d1d9;
   --textarea-color: #262e3a;
   --theme-icon: "\f185";
+  --bg-secondary: #262e3a;
+  --color-secondary: #c9d1d9;
 }
 
 :root[data-color-mode="light"] {
-  --background: #ffffff;
-  --color: #212121;
+  --bg-primary: #ffffff;
+  --color-primary: #212121;
   --textarea-color: #f5f3f3;
   --theme-icon: "\f186";
+  --bg-secondary: #f5f8fa;
+  --color-secondary: #212121;
 }
 
 body {
   font-family: sans-serif;
-  background: var(--background);
-  color: var(--color);
+  background: var(--bg-primary);
+  color: var(--color-primary);
 }
 
 .top-bar {
+  height: 70px;
   text-align: center;
   padding: 1rem;
   background-color: rgb(0, 8, 17);
@@ -54,6 +59,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  min-height: calc(100vh - 70px);
 }
 
 .editor {
@@ -64,7 +70,7 @@ body {
   font-size: 0.9rem;
   resize: none;
   background: var(--textarea-color);
-  color: var(--color);
+  color: var(--color-primary);
   border: none;
   padding: 20px;
   outline: none;
@@ -72,8 +78,67 @@ body {
   height: 100%;
 }
 
-.wmde-markdown-var {
+#preview {
   box-shadow: -2px 2px 7px rgba(109, 109, 109, 0.39);
   padding: 30px;
   height: 100%;
+}
+
+#preview > h1 {
+  margin-bottom: 1.4rem;
+}
+
+#preview > h2,
+h3 {
+  margin-bottom: 1rem;
+}
+
+#preview > p {
+  margin: 1rem 0;
+}
+
+#preview > pre {
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  padding: 0.8rem;
+  background-color: var(--bg-secondary);
+}
+
+#preview > pre > code {
+  color: var(--color-highlight);
+}
+
+#preview > blockquote {
+  border-left: solid 2px var(--color-secondary);
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+#preview table {
+  border-collapse: collapse;
+  margin: 2rem auto;
+}
+
+#preview td,
+#preview th {
+  border: 1px solid var(--color-secondary);
+  padding: 0.5rem;
+}
+
+#preview tbody > tr:nth-of-type(even) {
+  background-color: var(--bg-secondary);
+}
+
+#preview img {
+  display: block;
+  width: 100%;
+}
+
+#preview ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+#preview li {
+  padding: 0.2rem;
 }

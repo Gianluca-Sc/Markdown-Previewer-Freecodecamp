@@ -58,7 +58,7 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   min-height: calc(100vh - 70px);
 }
 
@@ -76,6 +76,15 @@ body {
   outline: none;
   width: 100%;
   height: 100%;
+}
+
+@media only screen and (max-width: 516px) {
+  .top-bar h1 {
+    font-size: 1.5rem;
+  }
+  .editor > textarea {
+    height: 40vh;
+  }
 }
 
 #preview {
@@ -102,6 +111,7 @@ h3 {
   border-radius: 2px;
   padding: 0.8rem;
   background-color: var(--bg-secondary);
+  overflow: auto;
 }
 
 #preview > pre > code {
